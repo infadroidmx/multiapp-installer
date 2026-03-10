@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Server, Key, Cloud, Send, Terminal, Loader2, Link as LinkIcon, Save, Database, Shield, LayoutGrid, HelpCircle, ChevronDown, ArrowUpRight, UserPlus } from 'lucide-react';
+import { Server, Key, Cloud, Send, Terminal, Loader2, Link as LinkIcon, Save, Database, Shield, LayoutGrid, HelpCircle, ChevronDown, ArrowUpRight, UserPlus, Info } from 'lucide-react';
 
 const FormGroup = ({ label, name, type = "text", placeholder = "", autoFocus = false, value, onChange, helpText, helpLink }: any) => (
     <div className="mb-5 bg-slate-800/20 p-4 border border-slate-700/30 rounded-xl relative group hover:bg-slate-800/40 transition-colors">
@@ -302,7 +302,20 @@ export default function App() {
                 </div>
             </div>
 
-
+            {/* Info Banner */}
+            <div className="max-w-[1800px] mx-auto mb-6">
+                <div className="bg-blue-900/20 border border-blue-700/50 rounded-xl p-4 flex items-start sm:items-center space-x-4">
+                    <div className="bg-blue-800/50 p-2 rounded-lg shrink-0">
+                        <Info className="w-5 h-5 text-blue-300" />
+                    </div>
+                    <div>
+                        <h4 className="text-blue-100 font-bold text-sm">Welcome to Multiapp Installer</h4>
+                        <p className="text-blue-300/80 text-xs mt-0.5 leading-relaxed">
+                            Your credentials and API keys are saved <strong>securely and locally</strong> on this machine in your AppData folder; they are never bundled into the <code>.exe</code> file. To perform a fresh installation of Postiz, <strong>only Section 1 is required</strong>. The other sections are optional integrations you can add later.
+                        </p>
+                    </div>
+                </div>
+            </div>
 
             {/* Create User Panel */}
             <div className="max-w-[1800px] mx-auto mb-6">
