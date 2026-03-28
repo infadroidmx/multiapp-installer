@@ -1,0 +1,4 @@
+owner: infadroidmx
+repo: multiapp-installer
+provider: github
+updaterCacheDirName: multiapp-installer-updater

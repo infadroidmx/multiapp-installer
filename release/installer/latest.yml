@@ -1,0 +1,8 @@
+version: 1.0.14
+files:
+  - url: Multiapp-Installer-Setup-1.0.14.exe
+    sha512: QRVimTpDy0VPd8rVa4m0tpYt7BIuz8K662F5bDS0lEaW3kpl7wMpLXWHrXUZM715PBy8WT1ejSoPW+2e/XUA9A==
+    size: 83809928
+path: Multiapp-Installer-Setup-1.0.14.exe
+sha512: QRVimTpDy0VPd8rVa4m0tpYt7BIuz8K662F5bDS0lEaW3kpl7wMpLXWHrXUZM715PBy8WT1ejSoPW+2e/XUA9A==
+releaseDate: '2026-03-15T15:39:21.836Z'

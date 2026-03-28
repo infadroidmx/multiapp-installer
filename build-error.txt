@@ -1,0 +1,75 @@
+﻿  ΓÇó electron-builder  version=24.13.3 os=10.0.26200
+  ΓÇó loaded configuration  file=package.json ("build" field)
+  ΓÇó effective config  config=directories:
+  output: release/installer-test4
+  buildResources: build
+appId: com.huezollc.multiappinstaller
+productName: Multiapp Installer
+npmRebuild: false
+files:
+  - filter:
+      - dist/**/*
+      - electron/**/*
+      - package.json
+      - public/icon.ico
+win:
+  target: nsis
+  icon: public/icon.ico
+nsis:
+  oneClick: false
+  allowToChangeInstallationDirectory: true
+  createDesktopShortcut: true
+  createStartMenuShortcut: true
+  shortcutName: Multiapp Installer
+  installerIcon: public/icon.ico
+  uninstallerIcon: public/icon.ico
+  license: null
+  runAfterFinish: true
+  deleteAppDataOnUninstall: false
+
+  ΓÇó skipped dependencies rebuild  reason=npmRebuild is set to false
+  ΓÇó packaging       platform=win32 arch=x64 electron=29.4.6 appOutDir=release\installer-test4\win-unpacked
+  ΓÇó spawning        command=C:\xampp\htdocs\postiz\node_modules\app-builder-bin\win\x64\app-builder.exe unpack-electron --configuration [{"platform":"win32","arch":"x64","version":"29.4.6"}] --output C:\xampp\htdocs\postiz\release\installer-test4\win-unpacked --distMacOsAppName Electron.app
+  ΓÇó map async       taskCount=2
+  ΓÇó map async       taskCount=1
+  ΓÇó map async       taskCount=73
+  ΓÇó exited          command=app-builder.exe code=0 pid=31768
+  ΓÇó spawning        command=C:\xampp\htdocs\postiz\node_modules\app-builder-bin\win\x64\app-builder.exe node-dep-tree --dir C:\xampp\htdocs\postiz
+  ΓÇó exited          command=app-builder.exe code=0 pid=5156 out=[{"dir":"C:\\xampp\\htdocs\\postiz\\node_modules","deps":[{"name":"asn1","version":"0.2.6"},{"name":"bcrypt-pbkdf","version":"1.0.2"},{"name":"buildcheck","version":"0.0.7"},{"name":"classnames","version":"2.5.1"},{"name":"cpu-features","version":"0.0.10","optional":true},{"name":"is-stream","version":"2.0.1"},{"name":"js-tokens","version":"4.0.0"},{"name":"loose-envify","version":"1.4.0"},{"name":"lucide-react","version":"0.359.0"},{"name":"make-dir","version":"3.1.0"},{"name":"nan","version":"2.25.0","optional":true},{"name":"node-ssh","version":"13.2.1"},{"name":"react","version":"18.3.1"},{"name":"react-dom","version":"18.3.1"},{"name":"safer-buffer","version":"2.1.2"},{"name":"sb-promise-queue","version":"2.1.1"},{"name":"sb-scandir","version":"3.1.1"},{"name":"scheduler","version":"0.23.2"},{"name":"semver","version":"6.3.1"},{"name":"shell-escape","version":"0.2.0"},{"name":"ssh2","version":"1.17.0"},{"name":"tweetnacl","version":"0.14.5"}]}]
+  ΓÇó not packed into asar archive  file=node_modules\ssh2\util\pagent.exe reason=contains executable code
+  ΓÇó getPublishConfigsForUpdateInfo: no publishConfigs, detect using repository info
+  ΓÇó calling getInfo  reason=owner or project is not specified explicitly provider=github owner=undefined project=undefined
+  ΓÇó spawning        command=C:\xampp\htdocs\postiz\node_modules\app-builder-bin\win\x64\app-builder.exe certificate-info --input c:\xampp\htdocs\postiz\certs\new-signing.pfx --password admin123
+  Γ¿» no certificates with ExtKeyUsageCodeSigning  
+  ΓÇó exited          command=app-builder.exe code=1 pid=21072
+  Γ¿» Cannot extract publisher name from code signing certificate. As workaround, set win.publisherName. Error: Error: C:\xampp\htdocs\postiz\node_modules\app-builder-bin\win\x64\app-builder.exe process failed ERR_ELECTRON_BUILDER_CANNOT_EXECUTE
+Exit code:
+1
+    at ChildProcess.<anonymous> (C:\xampp\htdocs\postiz\node_modules\builder-util\src\util.ts:252:14)
+    at Object.onceWrapper (node:events:622:26)
+    at ChildProcess.emit (node:events:507:28)
+    at ChildProcess.cp.emit (C:\xampp\htdocs\postiz\node_modules\cross-spawn\lib\enoent.js:34:29)
+    at maybeClose (node:internal/child_process:1101:16)
+    at Process.ChildProcess._handle.onexit (node:internal/child_process:305:5)  failedTask=build stackTrace=Error: Cannot extract publisher name from code signing certificate. As workaround, set win.publisherName. Error: Error: C:\xampp\htdocs\postiz\node_modules\app-builder-bin\win\x64\app-builder.exe process failed ERR_ELECTRON_BUILDER_CANNOT_EXECUTE
+Exit code:
+1
+    at ChildProcess.<anonymous> (C:\xampp\htdocs\postiz\node_modules\builder-util\src\util.ts:252:14)
+    at Object.onceWrapper (node:events:622:26)
+    at ChildProcess.emit (node:events:507:28)
+    at ChildProcess.cp.emit (C:\xampp\htdocs\postiz\node_modules\cross-spawn\lib\enoent.js:34:29)
+    at maybeClose (node:internal/child_process:1101:16)
+    at Process.ChildProcess._handle.onexit (node:internal/child_process:305:5)
+    at getCertInfo (C:\xampp\htdocs\postiz\node_modules\app-builder-lib\src\codeSign\windowsCodeSign.ts:88:11)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at Lazy.<anonymous> (C:\xampp\htdocs\postiz\node_modules\app-builder-lib\src\winPackager.ts:123:12)
+    at Lazy.<anonymous> (C:\xampp\htdocs\postiz\node_modules\app-builder-lib\src\winPackager.ts:101:22)
+    at getAppUpdatePublishConfiguration (C:\xampp\htdocs\postiz\node_modules\app-builder-lib\src\publish\PublishManager.ts:261:72)
+    at C:\xampp\htdocs\postiz\node_modules\app-builder-lib\src\publish\PublishManager.ts:118:29
+    at Packager.afterPack (C:\xampp\htdocs\postiz\node_modules\app-builder-lib\src\packager.ts:546:7)
+    at WinPackager.doPack (C:\xampp\htdocs\postiz\node_modules\app-builder-lib\src\platformPackager.ts:312:5)
+    at WinPackager.pack (C:\xampp\htdocs\postiz\node_modules\app-builder-lib\src\platformPackager.ts:140:5)
+    at Packager.doBuild (C:\xampp\htdocs\postiz\node_modules\app-builder-lib\src\packager.ts:445:9)
+    at executeFinally (C:\xampp\htdocs\postiz\node_modules\builder-util\src\promise.ts:12:14)
+    at Packager._build (C:\xampp\htdocs\postiz\node_modules\app-builder-lib\src\packager.ts:379:31)
+    at Packager.build (C:\xampp\htdocs\postiz\node_modules\app-builder-lib\src\packager.ts:340:12)
+    at executeFinally (C:\xampp\htdocs\postiz\node_modules\builder-util\src\promise.ts:12:14)

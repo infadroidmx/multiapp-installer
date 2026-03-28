@@ -4,12 +4,12 @@
 [Setup]
 AppId={{D1A2B3C4-E5F6-4A7B-8C9D-0E1F2A3B4C5D}
 AppName=Multiapp Installer
-AppVersion=1.0.0
+AppVersion=1.0.24
 AppPublisher=Huezorises LLC
 DefaultDirName={autopf}\Multiapp Installer
 DefaultGroupName=Multiapp Installer
 AllowNoIcons=yes
-OutputDir=dist-installer
+OutputDir=release/installer-1.0.24
 OutputBaseFilename=MultiappInstallerSetup
 SetupIconFile=public\icon.ico
 Compression=lzma
@@ -21,15 +21,15 @@ Name: "english"; MessagesFile: "compiler:Default.isl"
 Name: "spanish"; MessagesFile: "compiler:Languages\Spanish.isl"
 
 [Tasks]
-Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
+Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"
 
 [Files]
-Source: "dist-electron\win-unpacked\Multiapp Installer.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "dist-electron\win-unpacked\MultiappInstaller.exe"; DestDir: "{app}"; Flags: ignoreversion
 Source: "dist-electron\win-unpacked\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 
 [Icons]
-Name: "{group}\Multiapp Installer"; Filename: "{app}\Multiapp Installer.exe"
-Name: "{autodesktop}\Multiapp Installer"; Filename: "{app}\Multiapp Installer.exe"; Tasks: desktopicon
+Name: "{group}\Multiapp Installer"; Filename: "{app}\MultiappInstaller.exe"
+Name: "{autodesktop}\Multiapp Installer"; Filename: "{app}\MultiappInstaller.exe"; Tasks: desktopicon
 
 [Run]
-Filename: "{app}\Multiapp Installer.exe"; Description: "{cm:LaunchProgram,Multiapp Installer}"; Flags: nowait postinstall skipifsilent
+Filename: "{app}\MultiappInstaller.exe"; Description: "{cm:LaunchProgram,Multiapp Installer}"; Flags: nowait postinstall skipifsilent

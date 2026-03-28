@@ -1,0 +1,28 @@
+directories:
+  output: release/installer-1.0.20
+  buildResources: build
+appId: com.huezollc.multiappinstaller
+productName: Multiapp Installer
+npmRebuild: false
+files:
+  - filter:
+      - dist/**/*
+      - electron/**/*
+      - package.json
+      - public/icon.ico
+win:
+  target: nsis
+  icon: public/icon.ico
+  publisherName: Huezorises LLC
+nsis:
+  oneClick: false
+  allowToChangeInstallationDirectory: true
+  createDesktopShortcut: true
+  createStartMenuShortcut: true
+  shortcutName: Multiapp Installer
+  installerIcon: public/icon.ico
+  uninstallerIcon: public/icon.ico
+  license: null
+  runAfterFinish: true
+  deleteAppDataOnUninstall: false
+electronVersion: 29.4.6

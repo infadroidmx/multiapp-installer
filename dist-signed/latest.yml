@@ -1,0 +1,8 @@
+version: 1.0.0
+files:
+  - url: Multiapp-Installer-Setup-1.0.0.exe
+    sha512: zp7i2ki6LfSdv6+J3eSJ3+zYQcajBgNBYACc0hPlk+dbz+DjHqNFeG1GTUSgXULt4Wr53Xl/xJEgtmUzjkxzMw==
+    size: 83802296
+path: Multiapp-Installer-Setup-1.0.0.exe
+sha512: zp7i2ki6LfSdv6+J3eSJ3+zYQcajBgNBYACc0hPlk+dbz+DjHqNFeG1GTUSgXULt4Wr53Xl/xJEgtmUzjkxzMw==
+releaseDate: '2026-03-15T12:58:34.192Z'

@@ -43,3 +43,8 @@ Thumbs.db
 postiz-config.json
 user_data.json
 debug_db.cjs
+
+# Signing artifacts
+certs/
+*.pfx
+*.p12

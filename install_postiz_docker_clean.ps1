@@ -276,6 +276,8 @@ services:
         condition: service_healthy
       postiz-redis:
         condition: service_healthy
+      temporal:
+        condition: service_healthy
 
   postiz-postgres:
     image: postgres:17-alpine
@@ -290,18 +292,19 @@ services:
     networks:
       - postiz-network
     healthcheck:
-      test: pg_isready -U postiz-user -d postiz-db-local
+      test: ["CMD-SHELL", "pg_isready -U postiz-user -d postiz-db-local"]
       interval: 10s
-      timeout: 3s
-      retries: 3
+      timeout: 5s
+      retries: 5
+      start_period: 30s
   postiz-redis:
     image: redis:7.2
     container_name: postiz-redis
     restart: always
     healthcheck:
-      test: redis-cli ping
+      test: ["CMD", "redis-cli", "ping"]
       interval: 10s
-      timeout: 3s
+      timeout: 5s
       retries: 3
     volumes:
       - postiz-redis-data:/data
@@ -357,6 +360,11 @@ services:
     ports:
       - '7233:7233'
     image: temporalio/auto-setup:1.28.1
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:7233/health"]
+      interval: 15s
+      timeout: 10s
+      retries: 5
     depends_on:
       - temporal-postgresql
       - temporal-elasticsearch
@@ -433,7 +441,16 @@ echo "==> [1/7] Running system updates..."
 apt-get update >/dev/null
 
 echo "==> [2/7] Ensuring docker & docker-compose are installed..."
-apt-get install -y docker.io docker-compose >/dev/null
+apt-get install -y ca-certificates curl gnupg >/dev/null
+install -m 0755 -d /etc/apt/keyrings
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | gpg --dearmor -o /etc/apt/keyrings/docker.gpg --yes
+chmod a+r /etc/apt/keyrings/docker.gpg
+echo \
+  "deb [arch=`$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
+  `$(. /etc/os-release && echo "`$VERSION_CODENAME") stable" | \
+  tee /etc/apt/sources.list.d/docker.list > /dev/null
+apt-get update >/dev/null
+apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin >/dev/null
 
 echo "==> [3/7] Setting up project directory..."
 cd /root
@@ -464,8 +481,8 @@ else
 fi
 
 echo "==> [6/7] Starting or updating Docker containers (This can take 5-10 minutes on a fresh VM)..."
-docker-compose down 2>/dev/null || true
-docker-compose up -d
+docker compose down 2>/dev/null || true
+docker compose up -d
 echo "    -> Docker containers started. (Configured with 'restart: always' to start natively on reboot!)"
 
 echo "==> [7/7] Verifying status..."
